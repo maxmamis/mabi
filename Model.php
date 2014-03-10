@@ -372,24 +372,6 @@ class Model {
       unset($resultArray[$this->idProperty]);
     }
   }
-
-  /**
-   * Checks if an ID exists in a result array and if so, loads it into the model's idProperty
-   *
-   * @param resultArray Associative array that maps to the model
-   * @param sanitizeArray bool Whether to clean up $resultArray
-   */
-  protected function loadIdFromResultArray (&$resultArray, $sanitizeArray = FALSE) {
-    if (!empty($resultArray[$this->idColumn])) {
-      if (!$sanitizeArray) {
-        $dataConnection = $this->app->getDataConnection($this->connection);
-        $this->{$this->idProperty} = $dataConnection->convertFromNativeId($resultArray[$this->idColumn]);
-      }
-      unset($resultArray[$this->idColumn]);
-      unset($resultArray[$this->idProperty]);
-    }
-  }
-
   /**
    * Loads the data for the model from a PHP array or a json string into the current model object using reflection
    * and MABI annotations.
