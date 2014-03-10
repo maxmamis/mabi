@@ -586,7 +586,6 @@ class Model {
     }
     $dataConnection->save($this->table, $propArray, $this->idColumn,
       $dataConnection->convertToNativeId($this->{$this->idProperty}));
-    $this->load($propArray);
   }
 
   /**
